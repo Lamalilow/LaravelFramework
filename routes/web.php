@@ -16,3 +16,42 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/infoname/{name}', function ($name){
+    return ('Имя - '.$name);
+})-> where('name', '[A-Za-z]+');
+
+Route::get('/infoage/{age}', function ($age){
+    return ('Возраст - '.$age);
+}) -> where('age', '[0-9]{3}||[0-9]{2}||[0-9]{1}+');
+
+Route::get('/working/{name}/{cheto}', function ($name, $cheto) {
+    return $name . "<br>" . $cheto;
+});
+
+Route::get('/pizza', function (){
+    return ('Пицца с моцареллой ');
+});
+Route::get('/country', function ($age){
+    return ('Страна Россия великая держава');
+});
+Route::get('/friends', function (){
+    return ('Мой друганы - Зилибобка и Бёбля');
+});
+
+Route::get('/pol', function (){
+    return view('index');
+});
+Route::get('/book', function (){
+    $text = '"Все ужасы можно пережить, пока ты просто покоряешься своей судьбе, но попробуй размышлять о них – и они убьют тебя (На западном фронте без перемен, Э. М. Ремарк)"';
+    return view('two', compact('text'));
+});
+Route::get('/words', function (){
+    return view('three');
+});
+
+
+
+
+
+
