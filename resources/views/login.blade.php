@@ -11,7 +11,7 @@
 <form action="{{ route('login') }}" method="post" >
 
         @if(session()->has('errorSuccess'))
-            <h3>{{session()->get('errorSuccess')}}</h3>
+            <h3>{{ session()->get('errorSuccess' )}}</h3>
         @endif
         @csrf
         <input type="email" name="email" placeholder="Ваша почта"><br>

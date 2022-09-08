@@ -10,19 +10,23 @@
 <body>
 <form action="{{ route('register') }}" method="post" >
 
-    @if(session()->has('errorSuccess'))
-        <h3>{{session()->get('success')}}</h3>
+    @if(session()->has('success'))
+        <h3>Операции регистрации выполнена</h3>
     @endif
     @csrf
     <input type="email" name="email" placeholder="Ваше имя"><br>
     @error('name')<p>{{ $message }}</p>@enderror
     <input type="email" name="email" placeholder="Ваша почта"><br>
     @error('email')<p>{{ $message }}</p>@enderror
+    <input type="text" name="address" placeholder="Ваш адрес"><br>
+    @error('address')<p>{{ $message }}</p>@enderror
+    <input type="text" name="address" placeholder="Ваш возраст"><br>
+    @error('age')<p>{{ $message }}</p>@enderror
     <input type="password" name="password" placeholder="Ваш пароль"><br>
     @error('password')<p>{{ $message }}</p>@enderror
-    <input type="password" name="password_confirmetion" placeholder="Ваш пароль повторно"><br>
+    <input type="password" name="password_confirmation" placeholder="Ваш пароль повторно"><br>
 
-    <input type="submit" value="Войти">
+    <input type="submit" value="Регистрация">
 </form>
 </body>
 </html>
