@@ -14,8 +14,8 @@
         <h3>Операции регистрации выполнена</h3>
     @endif
     @csrf
-    <input type="email" name="email" placeholder="Ваше имя"><br>
-    @error('name')<p>{{ $message }}</p>@enderror
+    <input type="email" name="fullName" placeholder="Ваше имя"><br>
+    @error('fullName')<p>{{ $message }}</p>@enderror
     <input type="email" name="email" placeholder="Ваша почта"><br>
     @error('email')<p>{{ $message }}</p>@enderror
     <input type="text" name="address" placeholder="Ваш адрес"><br>
