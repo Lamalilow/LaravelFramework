@@ -24,9 +24,10 @@ class RequestValidationRegister extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required",
+            "fullName" => "required",
             "email" => "required|email|unique:users",
-            "password" => "required|confirmed"
+            "password" => "required|confirmed",
+
         ];
     }
 }

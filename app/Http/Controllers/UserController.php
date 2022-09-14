@@ -32,7 +32,7 @@ class UserController extends Controller
     }
 
     /**
-     *
+     * Открытие страницы регистрации
      * @param RequestValidationLogin $request
      */
     public function register()
@@ -40,6 +40,11 @@ class UserController extends Controller
         return view('register');
     }
 
+    /**
+     * Операция регистрации
+     * @param RequestValidationRegister $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function registerPost(RequestValidationRegister $request)
     {
         $data = $request->validated();
