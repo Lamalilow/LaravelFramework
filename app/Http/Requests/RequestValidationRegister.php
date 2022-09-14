@@ -27,6 +27,9 @@ class RequestValidationRegister extends FormRequest
             "fullName" => "required",
             "email" => "required|email|unique:users",
             "password" => "required|confirmed",
+            "age" => "required",
+            "login" => "required|unique:users",
+            "address" => "required"
 
         ];
     }
