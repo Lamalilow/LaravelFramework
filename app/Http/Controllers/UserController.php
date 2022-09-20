@@ -53,4 +53,27 @@ class UserController extends Controller
         User::create($data);
         return back()->with(['success'=>true]);
     }
+
+    /**
+     * Выход из авторизованной сессии
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->regenerate();
+        return redirect()->route('welcome');
+    }
+
+    /**
+     * Получение всех пользователей и их дальнеший вывод в представлении
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function users()
+    {
+        $users = User::all();
+        return view('/users', compact("users"));
+
+    }
 }

@@ -14,4 +14,17 @@ class MainController extends Controller
     {
         return view('welcome');
     }
+
+    /**
+     * Вывод данных в представлении
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function staticManager()
+    {
+        $name = "Сайт работотехники";
+        $address = "г. Челябинсск, Энтузиастов 17";
+        $time = "с 9:00 до 18:00";
+
+        return view('staticManager', ["nameSite" => $name, "address" => $address, "time" => $time]);
+    }
 }

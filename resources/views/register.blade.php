@@ -9,56 +9,97 @@
                     @if(session()->has('success'))
                         <h3>Операции регистрации успешно выполнена</h3>
                     @endif
-                    @csrf
                         <div class="mb-3">
-                            <label for="inputFullName" class="form-label">Ваше имя</label>
+                            <label for="inputName" class="form-label">Ваше имя:</label>
                             <input type="text"
-                                   class="form-control @error('fullName')is-invalid@enderror"
-                                   id="inputFullName"
-                                   name="fullName">
+                                   class="form-control @error('fullName') is-invalid @enderror"
+                                   id="inputName"
+                                   name="name"
+                                   aria-describedby="invalidName">
+                            @error('name')
+                            <div id="invalidName" class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="inputEmail" class="form-label">Ваша почта</label>
+                            <label for="inputLogin" class="form-label">Логин:</label>
+                            <input type="text"
+                                   class="form-control @error('login') is-invalid @enderror"
+                                   id="inputLogin"
+                                   name="login"
+                                   aria-describedby="invalidLogin">
+                            @error('login')
+                            <div id="invalidLogin" class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputAge" class="form-label">Возраст:</label>
+                            <input type="number"
+                                   class="form-control @error('age') is-invalid @enderror"
+                                   id="inputAge"
+                                   name="age"
+                                   aria-describedby="invalidAge">
+                            @error('age')
+                            <div id="invalidAge" class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputAddress" class="form-label">Адрес:</label>
+                            <input type="text"
+                                   class="form-control @error('address') is-invalid @enderror"
+                                   id="inputAddress"
+                                   name="address"
+                                   aria-describedby="invalidAddress">
+                            @error('address')
+                            <div id="invalidAddress" class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">Почта:</label>
                             <input type="email"
-                                   class="form-control @error('email')is-invalid@enderror"
+                                   class="form-control @error('email') is-invalid @enderror"
                                    id="inputEmail"
-                                   name="email">
+                                   name="email"
+                                   aria-describedby="invalidEmail">
+                            @error('email')
+                            <div id="invalidEmail" class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="inputPassword" class="form-label">Ваш пароль</label>
+                            <label for="inputPassword" class="form-label">Пароль:</label>
                             <input type="password"
-                                   class="form-control @error('password')is-invalid@enderror"
-                                   id="inputPassword" @error('inputPassword')is-invalid@enderror
-                                   name="password">
+                                   class="form-control @error('password') is-invalid @enderror"
+                                   id="inputPassword"
+                                   name="password"
+                                   aria-describedby="invalidPassword">
+                            @error('password')
+                            <div id="invalidPassword" class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="inputConfirmationPassword" class="form-label">Ваш пароль повторно</label>
+                            <label for="inputPassword_confirmation" class="form-label">Повторите пароль:</label>
                             <input type="password"
-                                   class="form-control @error('password_confirmation')is-invalid@enderror"
-                                   id="inputConfirmationPassword"
+                                   class="form-control @error('password_confirmation') is-invalid @enderror"
+                                   id="inputPassword_confirmation"
                                    name="password_confirmation"
                                    aria-describedby="invalidPasswordConfirmation">
-                        </div>
-                        @error('password_confirmation')
+                            @error('password_confirmation')
                             <div id="invalidPasswordConfirmation" class="invalid-feedback">
-                                {{ $message }}
+                                {{$message}}
                             </div>
-                        @enderror
-
-                        <input type="text" name="fullName" placeholder="Ваше имя"><br>
-                        @error('fullName')<p>{{ $message }}</p>@enderror
-                        <input type="text" name="login" placeholder="Ваш логин"><br>
-                        @error('login')<p>{{ $message }}</p>@enderror
-                        <input type="email" name="email" placeholder="Ваша почта"><br>
-                        @error('email')<p>{{ $message }}</p>@enderror
-                        <input type="text" name="address" placeholder="Ваш адрес"><br>
-                        @error('address')<p>{{ $message }}</p>@enderror
-                        <input type="text" name="age" placeholder="Ваш возраст"><br>
-                        @error('age')<p>{{ $message }}</p>@enderror
-                        <input type="password" name="password" placeholder="Ваш пароль"><br>
-                        @error('password')<p>{{ $message }}</p>@enderror
-                        <input type="password" name="password_confirmation" placeholder="Ваш пароль повторно"><br>
-
+                            @enderror
+                        </div>
                         <button type="submit" class="btn btn-primary">Регистрация</button>
                 </form>
             </div>
